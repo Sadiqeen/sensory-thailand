@@ -7,105 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pre Test | Sensory Evaluation</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="../vender/Range-Slider-Plugin/jquery.range.css"> -->
     <link rel="stylesheet" href="../vender/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../vender/jquery-ui-1.11.4.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="../vender/Slider-Pips/jquery-ui-slider-pips.css">
     <style>
+        .ui-slider {
+            background: #ec1616;
+        }
+
         @media only screen and (max-width: 720px) {
-        .footer-custom {
-            text-align: center;
+            .footer-custom {
+                text-align: center;
+            }
+
+            .footer-custom-br {
+                display: block;
+            }
         }
-        .footer-custom-br {
-            display: block;
+
+        @media only screen and (min-width: 720px) {
+            .footer-custom-right {
+                float: right !important;
+            }
+
+            .img-custom {
+                width: 500px;
+                height: auto;
+                margin-top: 15px !important;
+            }
         }
-    }
-    @media only screen and (min-width: 720px) {
-        .footer-custom-right {
-            float: right!important;
-        }
-    }
-
-    
-.range-slider { margin: 60px 0 0 0%; }
-
-.range-slider { width: 100%; }
-
-.range-slider__range {
-  -webkit-appearance: none;
- width: calc(100% - (73px));
-  height: 10px;
-  border-radius: 5px;
-  background: #d7dcdf;
-  outline: none;
-  padding: 0;
-  margin: 0;
-}
-.range-slider__range::-webkit-slider-thumb {
- -webkit-appearance: none;
- appearance: none;
- width: 20px;
- height: 20px;
- border-radius: 50%;
- background: #2c3e50;
- cursor: pointer;
- -webkit-transition: background .15s ease-in-out;
- transition: background .15s ease-in-out;
-}
-.range-slider__range::-webkit-slider-thumb:hover {
- background: #1abc9c;
-}
-.range-slider__range:active::-webkit-slider-thumb {
- background: #1abc9c;
-}
-.range-slider__range::-moz-range-thumb {
- width: 20px;
- height: 20px;
- border: 0;
- border-radius: 50%;
- background: #2c3e50;
- cursor: pointer;
- -webkit-transition: background .15s ease-in-out;
- transition: background .15s ease-in-out;
-}
-.range-slider__range::-moz-range-thumb:hover {
- background: #1abc9c;
-}
-.range-slider__range:active::-moz-range-thumb {
- background: #1abc9c;
-}
-.range-slider__range:focus::-webkit-slider-thumb {
- -webkit-box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1abc9c;
- box-shadow: 0 0 0 3px #fff, 0 0 0 6px #1abc9c;
-}
-
-.range-slider__value {
-  display: inline-block;
-  position: relative;
-  width: 60px;
-  color: #fff;
-  line-height: 20px;
-  text-align: center;
-  border-radius: 3px;
-  background: #2c3e50;
-  padding: 5px 10px;
-  margin-left: 8px;
-}
-
-.range-slider__value:after {
-  position: absolute;
-  top: 8px;
-  left: -7px;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-right: 7px solid #2c3e50;
-  border-bottom: 7px solid transparent;
-  content: '';
-}
-
-::-moz-range-track {
- background: #d7dcdf;
- border: 0;
-}
     </style>
 </head>
 
@@ -123,13 +53,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <img class="card-img-top" src="../images/demo.jpg" height="300" alt="">
+                    <div class="text-center">
+                        <img class="rounded img-fluid img-custom" src="../images/demo.jpg" alt="">
+                    </div>
                     <div class="card-body">
                         <h4 class="card-title">Questions one with nine scale, Please score product below and click
                             next?</h4>
-                        <div class="range-slider">
-                            <input class="range-slider__range" type="range" value="9" min="0" max="9" step="1">
-                            <span class="range-slider__value">9</span> </div>
+                        <div class="slider"></div>
                         <div class="text-center mt-5">
                             <a class="btn btn-primary btn-lg" href="./testDone.html">Next <i class="fas fa-forward"></i></a>
                         </div>
@@ -165,27 +95,19 @@
     <script src="../js/jquery-3.3.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <!-- <script src="../vender/Range-Slider-Plugin/jquery.range.js"></script> -->
+    <script src="../vender/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+    <script src="../vender/Slider-Pips/jquery-ui-slider-pips.js"></script>
     <script>
-        var rangeSlider = function () {
-            var slider = $('.range-slider'),
-                range = $('.range-slider__range'),
-                value = $('.range-slider__value');
-
-            slider.each(function () {
-
-                value.each(function () {
-                    var value = $(this).prev().attr('value');
-                    $(this).html(value);
-                });
-
-                range.on('input', function () {
-                    $(this).next(value).html(this.value);
-                });
+        $(".slider")
+            .slider({
+                min: 0,
+                max: 9,
+                value: 9,
+                step: 1
+            })
+            .slider("pips", {
+                rest: "label"
             });
-        };
-
-        rangeSlider();
     </script>
 </body>
 

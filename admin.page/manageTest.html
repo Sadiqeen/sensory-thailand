@@ -30,42 +30,42 @@
 
     <!-- Start NAV bar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">LOGO</a>
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-                aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./dashboard.html">Dashboard</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">User</a>
-                        <div class="dropdown-menu" aria-labelledby="user">
-                            <a class="dropdown-item" href="./addUser.html">Create new User</a>
-                            <a class="dropdown-item" href="./manageUser.html">Manage user</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">Test</a>
-                        <div class="dropdown-menu" aria-labelledby="test">
-                            <a class="dropdown-item" href="./addTest.html">Create new Test</a>
-                            <a class="dropdown-item active" href="./manageTest.html">Manage Test</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./organization.html" id="organization" aria-expanded="false">Organization</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="../admin.html">Sign out</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- End NAV bar -->
+        <a class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="./dashboard.html">Dashboard</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">User</a>
+                    <div class="dropdown-menu" aria-labelledby="user">
+                        <a class="dropdown-item" href="./addUser.html">Create new User</a>
+                        <a class="dropdown-item" href="./manageUser.html">Manage user</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Test</a>
+                    <div class="dropdown-menu" aria-labelledby="test">
+                        <a class="dropdown-item" href="./addTest.html">Create new Test</a>
+                        <a class="dropdown-item active" href="./manageTest.html">Manage Test</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./organization.html" id="organization" aria-expanded="false">Organization</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="../admin.html">Sign out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End NAV bar -->
 
     <!-- Start Content -->
     <div class="container mt-3">
@@ -74,350 +74,379 @@
             <strong>Manage Test!</strong>
         </div>
         <div class="row" style="margin-bottom:80px">
-            <div class="col-md-12 card">
-                <div class="card-body">
-                    <div class="table-responsive-md table-striped">
-                        <table class="table" id="manageUser">
-                            <thead>
-                                <tr>
-                                    <th>Test Code</th>
-                                    <th>Test Name</th>
-                                    <th>Organization</th>
-                                    <th>Gold</th>
-                                    <th>Available</th>
-                                    <th>Round</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">TH0213</td>
-                                    <td>Thob</td>
-                                    <td>Organization 1</td>
-                                    <td>20/50</td>
-                                    <td><label for="" class="badge badge-success">Available</label></td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-secondary">1</a>
-                                            <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-plus"
-                                                    aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive-md table-striped">
+                            <table class="table" id="manageUser">
+                                <thead>
+                                    <tr>
+                                        <th>Test Code</th>
+                                        <th>Test Name</th>
+                                        <th>Organization</th>
+                                        <th>Gold</th>
+                                        <th>Available</th>
+                                        <th>Round</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound">
+                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">TH0213</td>
+                                        <td>Thob</td>
+                                        <td>Organization 1</td>
+                                        <td>20/50</td>
+                                        <td><label for="" class="badge badge-success">Available</label></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="#" class="btn btn-sm btn-secondary">1</a>
+                                                <a href="#" class="btn btn-sm btn-warning" data-toggle="modal"
+                                                    data-target="#modalAddRound"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="actionButton">
+                                                <a href="./reportTable.html" class="btn btn-sm btn-primary">Report</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Content -->
+
+    <!-- Start modal -->
+    <div class="modal fade" id="modalAddRound" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Round</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Set target for next round</label>
+                        <input type="text" name="" id="" class="form-control" placeholder="Target">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End modal -->
 
     <!-- Start Footer -->
     <footer class="footer py-3 bg-dark text-white fixed-bottom">
