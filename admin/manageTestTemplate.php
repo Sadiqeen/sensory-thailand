@@ -1,4 +1,9 @@
-<?php session_start() ?>
+<?php 
+require "../class/testTemplateClass.php" ;
+
+$template = new TestTemplate;
+$result = $template->getTestTemplate();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,20 +54,12 @@
                         <a class="dropdown-item" href="./manageUser.html">Manage user</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Template</a>
-                    <div class="dropdown-menu" aria-labelledby="user">
-                        <a class="dropdown-item" href="./addTestTemplate.php">Create new Template</a>
-                        <a class="dropdown-item" href="./manageTestTemplate.html">Manage Template</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Test</a>
                     <div class="dropdown-menu" aria-labelledby="test">
                         <a class="dropdown-item" href="./addTest.html">Create new Test</a>
-                        <a class="dropdown-item" href="./manageTest.html">Manage Test</a>
+                        <a class="dropdown-item active" href="./manageTest.html">Manage Test</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -80,51 +77,65 @@
     <div class="container mt-3">
 
         <div class="alert alert-info text-center">
-            <strong>Add Test Template!</strong>
+            <strong>Manage Test!</strong>
         </div>
-        <?php
-        if (isset($_SESSION['success'])) {
-            echo $_SESSION['success'];
-            unset($_SESSION['success']);
-        }
-        ?>
         <div class="row" style="margin-bottom:80px">
-
-            <!-- Test -->
-            <div class="col-md-12 mb-3">
-                <form action="../class/testTemplateClass.php" method="post">
-                    <div class="card">
-                        <div class="card-header">Test</div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="form-group col-md-8">
-                                    <label for="">Test Template Name</label>
-                                    <input type="text" name="template_name" id="" class="form-control" placeholder="Template Name">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="">Quanlity</label>
-                                    <select name="question_qt" id="question_qt" class="form-control">
-                                        <option value="5" selected>5 questions</option>
-                                        <option value="10">10 questions</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Question -->
-                            <div id="state" class="row"></div>
-                            <!-- Button -->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button class="btn btn-secondary">Discard</button>
-                                    <button class="btn btn-success float-right" name="addTestTemplate">Save</button>
-                                </div>
-                            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive-md table-striped">
+                            <table class="table" id="manageUser">
+                                <thead>
+                                    <tr>
+                                        <th>Template Name</th>
+                                        <th>Question quantity</th>
+                                        <th>Usage</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php for ($i = 0; $i < count($result); $i++) : ?>
+                                            <tr>
+                                                <td  scope="row"><?php echo ($result[$i][1]) ?></td>
+                                                <td  scope="row"><?php echo ($result[$i][2]) ?></td>
+                                                <td  scope="row"><a href="#" class="btn btn-sm btn-secondary">N/A</a></td>
+                                                <td  scope="row"><a href="#/<?php echo ($result[$i][0]) ?>" class="btn btn-sm btn-danger">Delete</a></td>
+                                            </tr>
+                                    <?php endfor; ?> 
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
     <!-- End Content -->
+
+    <!-- Start modal -->
+    <div class="modal fade" id="modalAddRound" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Round</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Set target for next round</label>
+                        <input type="text" name="" id="" class="form-control" placeholder="Target">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End modal -->
 
     <!-- Start Footer -->
     <footer class="footer py-3 bg-dark text-white fixed-bottom">
@@ -142,32 +153,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../vender/DataTables/datatables.min.js"></script>
     <script>
-        $(function () {
-            quetion_ql = $('#question_qt').val();
-            var question = question_ql();
-            $("#state").append(question);
-            $('#question_qt').change(function (e) {
-                $("#state").empty();
-                var question = question_ql();
-                $("#state").append(question);
-            });
-        });
-
-        function question_ql() {
-            var question = '<div class="form-group col-md-12">' +
-                '<label for="">Question 1</label>' +
-                '<input type="text" name="question[]" id="" class="form-control" placeholder="Enter question">' +
-                '</div>';
-
-            for (let index = 0; index < $('#question_qt').val() - 1; index++) {
-                question += '<div class="form-group col-md-12">' +
-                    '<label for="">Question ' + (index + 2) + '</label>' +
-                    '<input type="text" name="question[]" id="" class="form-control" placeholder="Enter question">' +
-                    '</div>';
-            }
-
-            return question;
-        }
+        $('#manageUser').DataTable();
     </script>
 </body>
 

@@ -1,7 +1,10 @@
 <?php
 
+// Require
 require '../class/Insert.php';
 
+
+// Class
 class TestTemplate
 {
    
@@ -36,7 +39,7 @@ class TestTemplate
             array_push($value, array($this->questions[$i],$templateID));
         }
 
-        $saveQuestions = new Insert();
+        $saveQuestions = new Insert;
         $saveQuestions->table('test_questions');
         $saveQuestions->insertMany($column,$value);
         $saveQuestions->success('../admin/addTestTemplate.php','เพิ่มชุดคำถามสำเร็จ');
@@ -45,7 +48,7 @@ class TestTemplate
 
     private function saveTemplateName()
     {
-        $insertTemplateName = new Insert();
+        $insertTemplateName = new Insert;
         $insertTemplateName->table('test_templates');
         $insertTemplateName->insertOne(
             array(
@@ -56,4 +59,24 @@ class TestTemplate
         $insertTemplateName->query();
         return $insertTemplateName->getLastInsertID();
     }
+
+    public function getTestTemplate()
+    {
+        $template = new Select;
+        $template->table('test_templates');
+        return $template->all();
+    }
+}
+
+// Add Test Template
+if (isset($_POST['addTestTemplate'])) {
+    $template_name = ($_POST['template_name']) ? $_POST['template_name'] : '' ;
+    $quantity = ($_POST['question_qt']) ? $_POST['question_qt'] : '' ;
+    $questions = ($_POST['question']) ? $_POST['question'] : '' ;
+
+    $testTemplate = new TestTemplate;
+    $testTemplate->setTemplateName($template_name);
+    $testTemplate->setQuantity($quantity);
+    $testTemplate->addQuestions($questions);
+    $testTemplate->save();
 }

@@ -8,7 +8,7 @@ class Database
     protected $user;
     protected $pass;
     protected $table;
-
+    protected $query;
 
     public function __construct()
     {

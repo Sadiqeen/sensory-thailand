@@ -1,11 +1,9 @@
 <?php
 
-require '../class/Database.php';
+require '../class/Select.php';
 
-class Insert extends Database
+class Insert extends Select
 {
-
-    protected $query;
     protected $last_id;
 
     //  @param array
