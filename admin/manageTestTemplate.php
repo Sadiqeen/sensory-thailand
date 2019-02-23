@@ -1,7 +1,7 @@
 <?php 
 require "../class/testTemplateClass.php" ;
 
-$template = new TestTemplate;
+$template = new TestTemplateClass;
 $result = $template->getTestTemplate();
 ?>
 <!DOCTYPE html>
@@ -55,11 +55,19 @@ $result = $template->getTestTemplate();
                     </div>
                 </li>
                 <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Template</a>
+                    <div class="dropdown-menu" aria-labelledby="user">
+                        <a class="dropdown-item" href="./addTestTemplate.php">Create new Template</a>
+                        <a class="dropdown-item active" href="./manageTestTemplate.php">Manage Template</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Test</a>
                     <div class="dropdown-menu" aria-labelledby="test">
                         <a class="dropdown-item" href="./addTest.html">Create new Test</a>
-                        <a class="dropdown-item active" href="./manageTest.html">Manage Test</a>
+                        <a class="dropdown-item" href="./manageTest.html">Manage Test</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -77,8 +85,20 @@ $result = $template->getTestTemplate();
     <div class="container mt-3">
 
         <div class="alert alert-info text-center">
-            <strong>Manage Test!</strong>
+            <strong>จัดการชุดคำถาม!</strong>
         </div>
+
+        <!-- Notification -->
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success text-center">
+                <?php echo $_SESSION['success']; ?>
+                <?php unset($_SESSION['success']); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endif; ?>
+
         <div class="row" style="margin-bottom:80px">
             <div class="col-md-12">
                 <div class="card">
@@ -87,19 +107,19 @@ $result = $template->getTestTemplate();
                             <table class="table" id="manageUser">
                                 <thead>
                                     <tr>
-                                        <th>Template Name</th>
-                                        <th>Question quantity</th>
-                                        <th>Usage</th>
-                                        <th>Action</th>
+                                        <th>ชื่อชุดคำถาม</th>
+                                        <th>จำนวนคำถาม</th>
+                                        <th>จำนวนที่ใช้</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php for ($i = 0; $i < count($result); $i++) : ?>
                                             <tr>
                                                 <td  scope="row"><?php echo ($result[$i][1]) ?></td>
-                                                <td  scope="row"><?php echo ($result[$i][2]) ?></td>
-                                                <td  scope="row"><a href="#" class="btn btn-sm btn-secondary">N/A</a></td>
-                                                <td  scope="row"><a href="#/<?php echo ($result[$i][0]) ?>" class="btn btn-sm btn-danger">Delete</a></td>
+                                                <td><?php echo ($result[$i][2]) ?></td>
+                                                <td><a href="#" class="btn btn-sm btn-secondary">N/A</a></td>
+                                                <td><a href="../class/testTemplateClass.php/?del=<?php echo ($result[$i][0]) ?>" class="btn btn-sm btn-danger">Delete</a></td>
                                             </tr>
                                     <?php endfor; ?> 
                                 </tbody>

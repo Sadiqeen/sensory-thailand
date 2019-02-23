@@ -49,12 +49,12 @@
                         <a class="dropdown-item" href="./manageUser.html">Manage user</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Template</a>
                     <div class="dropdown-menu" aria-labelledby="user">
-                        <a class="dropdown-item" href="./addTestTemplate.php">Create new Template</a>
-                        <a class="dropdown-item" href="./manageTestTemplate.html">Manage Template</a>
+                        <a class="dropdown-item active" href="./addTestTemplate.php">Create new Template</a>
+                        <a class="dropdown-item" href="./manageTestTemplate.php">Manage Template</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -80,7 +80,7 @@
     <div class="container mt-3">
 
         <div class="alert alert-info text-center">
-            <strong>Add Test Template!</strong>
+            <strong>เพิ่มชุคคำถาม!</strong>
         </div>
         <?php
         if (isset($_SESSION['success'])) {
@@ -94,18 +94,18 @@
             <div class="col-md-12 mb-3">
                 <form action="../class/testTemplateClass.php" method="post">
                     <div class="card">
-                        <div class="card-header">Test</div>
+                        <div class="card-header">เพิ่มชุดคำถามใหม่</div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-8">
-                                    <label for="">Test Template Name</label>
+                                    <label for="">ชื่อชุดคำถาม</label>
                                     <input type="text" name="template_name" id="" class="form-control" placeholder="Template Name">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="">Quanlity</label>
+                                    <label for="">จำนวนคำถาม</label>
                                     <select name="question_qt" id="question_qt" class="form-control">
-                                        <option value="5" selected>5 questions</option>
-                                        <option value="10">10 questions</option>
+                                        <option value="5" selected>5 คำถาม</option>
+                                        <option value="10">10 คำถาม</option>
                                     </select>
                                 </div>
                             </div>
@@ -114,8 +114,8 @@
                             <!-- Button -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-secondary">Discard</button>
-                                    <button class="btn btn-success float-right" name="addTestTemplate">Save</button>
+                                    <a class="btn btn-secondary" href="./manageTestTemplate.php">ยกเลิก</a>
+                                    <button class="btn btn-success float-right" name="addTestTemplate" type="submit">บันทึก</button>
                                 </div>
                             </div>
                         </div>
@@ -155,13 +155,13 @@
 
         function question_ql() {
             var question = '<div class="form-group col-md-12">' +
-                '<label for="">Question 1</label>' +
+                '<label for="">คำถามที่ 1</label>' +
                 '<input type="text" name="question[]" id="" class="form-control" placeholder="Enter question">' +
                 '</div>';
 
             for (let index = 0; index < $('#question_qt').val() - 1; index++) {
                 question += '<div class="form-group col-md-12">' +
-                    '<label for="">Question ' + (index + 2) + '</label>' +
+                    '<label for="">คำถามที่ ' + (index + 2) + '</label>' +
                     '<input type="text" name="question[]" id="" class="form-control" placeholder="Enter question">' +
                     '</div>';
             }

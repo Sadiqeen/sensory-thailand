@@ -1,8 +1,8 @@
 <?php
 
-require '../class/Select.php';
+require '../class/DeleteClass.php';
 
-class Insert extends Select
+class InsertClass extends DeleteClass
 {
     protected $last_id;
 

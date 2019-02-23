@@ -1,11 +1,11 @@
 <?php
 
 // Require
-require '../class/Insert.php';
+require '../class/DatabaseClass.php';
 
 
 // Class
-class TestTemplate
+class TestTemplateClass
 {
    
     protected $templateName = "";
@@ -39,16 +39,16 @@ class TestTemplate
             array_push($value, array($this->questions[$i],$templateID));
         }
 
-        $saveQuestions = new Insert;
+        $saveQuestions = new DatabaseClass;
         $saveQuestions->table('test_questions');
         $saveQuestions->insertMany($column,$value);
-        $saveQuestions->success('../admin/addTestTemplate.php','เพิ่มชุดคำถามสำเร็จ');
+        $saveQuestions->success('../admin/manageTestTemplate.php','เพิ่มชุดคำถามสำเร็จ');
         $saveQuestions->query();
     }
 
     private function saveTemplateName()
     {
-        $insertTemplateName = new Insert;
+        $insertTemplateName = new DatabaseClass;
         $insertTemplateName->table('test_templates');
         $insertTemplateName->insertOne(
             array(
@@ -62,10 +62,23 @@ class TestTemplate
 
     public function getTestTemplate()
     {
-        $template = new Select;
+        $template = new DatabaseClass;
         $template->table('test_templates');
         return $template->all();
     }
+
+    public function delTestTemplate($templateID)
+    {
+        $template = new DatabaseClass;
+        $template->table('test_templates');
+        $delID = array(
+            'test_names_id' => $templateID
+        );
+        $template->delOne($delID);
+        $template->success('../../admin/manageTestTemplate.php','ลบชุดคำถามสำเร็จ');
+        $template->query();
+    }
+
 }
 
 // Add Test Template
@@ -74,9 +87,18 @@ if (isset($_POST['addTestTemplate'])) {
     $quantity = ($_POST['question_qt']) ? $_POST['question_qt'] : '' ;
     $questions = ($_POST['question']) ? $_POST['question'] : '' ;
 
-    $testTemplate = new TestTemplate;
+    $testTemplate = new TestTemplateClass;
     $testTemplate->setTemplateName($template_name);
     $testTemplate->setQuantity($quantity);
     $testTemplate->addQuestions($questions);
     $testTemplate->save();
+}
+
+// Delete Test Template
+if (isset($_GET['del'])) {
+    $templateID = ($_GET['del']) ? $_GET['del'] : '' ;
+
+    $testTemplate = new TestTemplateClass;
+    $testTemplate->delTestTemplate($templateID);
+
 }

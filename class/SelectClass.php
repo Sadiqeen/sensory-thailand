@@ -1,10 +1,10 @@
 <?php
 
 // Require
-require '../class/Database.php';
+require '../class/InsertClass.php';
 
 // Class
-class Select extends Database
+class SelectClass extends InsertClass
 {
 
     protected $result = array();
