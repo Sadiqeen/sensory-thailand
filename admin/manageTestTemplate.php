@@ -1,5 +1,5 @@
 <?php 
-require "../class/testTemplateClass.php" ;
+require "../class/TestTemplateClass.php" ;
 
 $template = new TestTemplateClass;
 $result = $template->getTestTemplate();

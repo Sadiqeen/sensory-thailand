@@ -15,6 +15,21 @@ class SelectClass extends InsertClass
         return $this->querySelect();
     }
 
+    public function allWhere($where)
+    {
+        $this->query = "SELECT * FROM `$this->table` WHERE ";
+        $i = 0;
+        $count = count($where)-1;
+        foreach ($where as $key => $value) {
+            $this->query .= " `$key` = '$value'";
+            $i++;
+            if ($i> 0 && $i<$count) {
+                $this->query .= " AND ";
+            }
+        }
+        return $this->querySelect();
+    }
+
     private function querySelect()
     {
         $conn = new mysqli($this->host, $this->user, $this->pass,$this->db);

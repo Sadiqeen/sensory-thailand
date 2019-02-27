@@ -1,9 +1,16 @@
+<?php 
+require "../class/TestTemplateClass.php";
+
+$template = new TestTemplateClass;
+$template = $template->getTestTemplate();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin | Sensory Evaluation</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -31,8 +38,7 @@
     <!-- Start NAV bar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -41,16 +47,14 @@
                     <a class="nav-link" href="./dashboard.html">Dashboard</span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">User</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
                     <div class="dropdown-menu" aria-labelledby="user">
                         <a class="dropdown-item" href="./addUser.html">Create new User</a>
                         <a class="dropdown-item" href="./manageUser.html">Manage user</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Test</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Test</a>
                     <div class="dropdown-menu" aria-labelledby="test">
                         <a class="dropdown-item active" href="./addTest.html">Create new Test</a>
                         <a class="dropdown-item" href="./manageTest.html">Manage Test</a>
@@ -122,31 +126,48 @@
                     <div class="card-body row text-center">
                         <div class="col-md-3 form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue"
-                                    checked>
+                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
                                 Pretest 1
                             </label>
                         </div>
                         <div class="col-md-3 form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue"
-                                    checked>
+                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
                                 Pretest 2
                             </label>
                         </div>
                         <div class="col-md-3 form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue"
-                                    checked>
+                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
                                 Pretest 3
                             </label>
                         </div>
                         <div class="col-md-3 form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue"
-                                    checked>
+                                <input type="checkbox" class="form-check-input" name="" id="" value="checkedValue" checked>
                                 Pretest 4
                             </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Test Template -->
+            <div class="col-md-12 mb-3">
+                <div class="card">
+                    <div class="card-header">เลือกชุดคำถาม</div>
+                    <div class="card-body row">
+                        <div class="form-group col-md-8">
+                            <label for="">ชุดคำถาม</label>
+                            <select name="template" id="template" class="form-control">
+                                <?php for ($i=0; $i < count($template); $i++) :?>
+                                    <option value="<?php echo $template[$i][0] ?>" data-qt="<?php echo $template[$i][2] ?>"><?php echo $template[$i][1] ?></option>
+                                <?php endfor; ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">จำนวนคำถาม</label>
+                            <input type="text" name="" id="questionQT" class="form-control" placeholder="" disabled>
                         </div>
                     </div>
                 </div>
@@ -155,22 +176,9 @@
             <!-- Test -->
             <div class="col-md-12 mb-3">
                 <div class="card">
-                    <div class="card-header">Test</div>
-                    <div class="card-body row">
-                        <div class="form-group col-md-8">
-                            <label for="">Question 1</label>
-                            <input type="text" name="" id="" class="form-control" placeholder="Enter question">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="">Test picture</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Choose file</label>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <button class="btn btn-secondary btn-block">Add more</button>
-                        </div>
+                    <div class="card-header">คำถาม</div>
+                    <div class="card-body row" id="questions">
+                        
                     </div>
                 </div>
             </div>
@@ -204,8 +212,62 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../vender/DataTables/datatables.min.js"></script>
     <script>
-        $('#manageUser').DataTable();
+        $(document).ready(function () {
+            questionQT();
+            getQuestion();
+            $("#template").on("change", function () {
+                questionQT();
+                getQuestion();
+            });
+
+            $('.custom-file-input').on('change', function() { 
+                let fileName = $(this).val().split('\\').pop(); 
+                $(this).next('.custom-file-label').addClass("selected").text(fileName); 
+            });
+        });
+
+        function questionQT()
+        {
+            var questionQT = $("#template").children("option:selected").data("qt");
+            $("#questionQT").val(questionQT);
+        }
+
+        function getQuestion()
+        {
+            var templateID = $("#template").children("option:selected").val();
+            $.ajax({
+                type: "get",
+                url: "../class/TestTemplateClass.php",
+                data: "templateID="+templateID,
+                dataType: "json",
+                success: function (response) {
+                    $("#questions").empty();
+                    writeQuestion(response);
+                }
+            });
+        }
+
+        function writeQuestion(data)
+        {
+            var questions = "";
+            
+            for (let index = 0; index < data.length; index++) {
+                questions += '<div class="form-group col-md-8">'+
+                                '<label for="">คำถามที่ '+(index+1)+'</label>'+
+                                '<input type="text" name="questions[]" id="" class="form-control" value="'+data[index][1]+'" disabled>'+
+                            '</div>'+
+                            '<div class="form-group col-md-4">'+
+                                '<label for="">Test picture</label>'+
+                                '<div class="custom-file">'+
+                                    '<input type="file" name="picture[]" class="custom-file-input">'+
+                                    '<label class="custom-file-label" for="customFile">Choose file</label>'+
+                                '</div>'+
+                            '</div>';
+            }
+            
+            $("#questions").append(questions);
+        }
     </script>
 </body>
 
-</html>
+</html> 

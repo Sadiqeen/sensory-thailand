@@ -79,6 +79,16 @@ class TestTemplateClass
         $template->query();
     }
 
+    public function getQuestion($templateID)
+    {
+        $questions = new DatabaseClass;
+        $questions->table('test_questions');
+        $where = array(
+            'test_templates_id' => $templateID
+        );
+        return ($questions->allWhere($where));
+    }
+
 }
 
 // Add Test Template
@@ -101,4 +111,11 @@ if (isset($_GET['del'])) {
     $testTemplate = new TestTemplateClass;
     $testTemplate->delTestTemplate($templateID);
 
+}
+
+if (isset($_GET['templateID'])) {
+    $templateID = ($_GET['templateID']) ? $_GET['templateID'] : '' ;
+
+    $testTemplate = new TestTemplateClass;
+    echo json_encode($testTemplate->getQuestion($templateID));
 }
