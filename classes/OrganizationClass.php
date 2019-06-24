@@ -27,7 +27,7 @@ class OrganizationClass
     }
 }
 
-// Request from font
+// Request from front
 if (isset($_POST['add'])) {
     OrganizationClass::addOrganization($_POST['name'], $_POST['tel'], $_POST['email']);
 }

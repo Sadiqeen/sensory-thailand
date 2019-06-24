@@ -59,7 +59,7 @@ class TemplateClass
     }
 }
 
-// Request from font
+// Request from front
 if (isset($_POST['addTemplate'])) {
     $template_name = $_POST['template_name'];
     $question_quantity = $_POST['question_qt'];
