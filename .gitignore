@@ -6,4 +6,4 @@
 .idea/workspace.xml
 .env
 vendor
-images
+images/*
