@@ -1,3 +1,4 @@
+ # Sensory Evaluation Application
  1. Coppy .env.example to .env
  2. Fill database information in .env follow
 	 - HOST
