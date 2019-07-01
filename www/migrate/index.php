@@ -1,6 +1,6 @@
 <?php
 define('__ROOT__', $_SERVER['DOCUMENT_ROOT']); 
-require_once __ROOT__.'\vendor\autoload.php';
+require_once __ROOT__.'/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::create(__ROOT__);
 $dotenv->load();

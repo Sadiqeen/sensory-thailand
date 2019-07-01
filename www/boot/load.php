@@ -5,7 +5,7 @@ session_start();
 if (!defined('__ROOT__')) {
     define('__ROOT__', $_SERVER['DOCUMENT_ROOT']); 
 }
-require_once __ROOT__.'\vendor\autoload.php';
+require_once __ROOT__.'/vendor/autoload.php';
 // end-autoload
 
 // DB connect
