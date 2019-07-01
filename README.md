@@ -1,14 +1,10 @@
  # Sensory Evaluation Application
- 1. Coppy .env.example to .env
- 2. Fill database information in .env follow
-	 - HOST
-	 - DATABASE
-	 - USER
-	 - PASSWORD
-3. Open your Terminal and run command<br/>
-	`composer install`<br/>
-	*make sure you have set up [composer](https://getcomposer.org/)*
-4. Access to page `migrate/index.php` to migrate database<br/>
-	`http://localhost/migrate/index.php`<br/>
-	*change `localhost` to your host url*
-5. Project is ready!
+ 1. Go to www then coppy .env.example to .env
+ 2. Back to root directory, Openterminal and run command<br/>
+ 	`docker-compose build`<br/>
+ 	`docker-compose exec webserver composer update`<br/>
+	`docker-compose up`
+ 3. If docker ran correctly you can vitsit system at
+	`http://localhost:8081/` (Web page)<br/>
+	`http://localhost:8080/` (phpMyadmin)
+ 4. Project is ready!
