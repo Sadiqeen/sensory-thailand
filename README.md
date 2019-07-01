@@ -7,4 +7,6 @@
  3. If docker ran correctly you can vitsit system at<br/>
 	`http://localhost:8081/` => Web page<br/>
 	`http://localhost:8080/` => phpMyadmin
- 4. Project is ready!
+ 4. Access to page `migrate/index.php` to migrate database<br/>
+	`http://localhost:8081/migrate/index.php`
+ 5. Project is ready!
