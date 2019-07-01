@@ -1,6 +1,6 @@
  # Sensory Evaluation Application
  1. Go to www then coppy .env.example to .env
- 2. Back to root directory, Openterminal and run command<br/>
+ 2. Back to root directory, Open terminal and run command<br/>
  	`docker-compose build`<br/>
  	`docker-compose exec webserver composer update`<br/>
 	`docker-compose up`
