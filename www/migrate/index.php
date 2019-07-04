@@ -80,6 +80,13 @@ $capsule->schema()->create('test_questions', function ($table) {
     $table->timestamps();
 });
 
+$capsule->schema()->create('users', function ($table) {
+    $table->increments('id');
+    $table->string('username');
+    $table->string('password');
+    $table->string('email');
+    $table->timestamps();
+});
 
 // Default value
 $capsule->table('test_methods')->insert([

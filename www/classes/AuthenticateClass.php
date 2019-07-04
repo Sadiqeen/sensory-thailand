@@ -2,21 +2,23 @@
 namespace Classes;
 require_once __DIR__ . '/../boot/load.php';
 
+use Model\UsersModel;
+
 class AuthenticateClass
 {
-    public function verify($username, $password)
+
+    public function login($username,$password)
     {
-        if (password_verify('rasmuslerdorf', $hash)) {
-            echo 'Password is valid!';
+        $existUsername = UsersModel::where('username',$username)->first();
+        if ($existUsername) {
+             echo 'goodjob';
         } else {
-            echo 'Invalid password.';
+            echo 'username not exist';
         }
     }
 }
 
 // Request from user
 if (isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    AuthenticateClass::verify($username, $password);
+    AuthenticateClass::login($_POST['username'],$_POST['password']);
 }
