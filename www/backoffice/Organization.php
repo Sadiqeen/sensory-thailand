@@ -28,16 +28,16 @@ require_once __DIR__.'/layout/navbar.php';
         <div class="card">
             <div class="card-header">Add organization</div>
             <div class="card-body">
-                <form action="<?php __ROOT__ ?>/classes/OrganizationClass.php" method="post">
+                <form action="<?php echo __HOST__ ?>/classes/OrganizationClass.php" method="post">
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <input type="text" name="name" id="" class="form-control" placeholder="Organization name">
+                            <input type="text" name="name" id="" class="form-control" placeholder="Organization name" required>
                         </div>
                         <div class="form-group col-md-3">
-                            <input type="text" name="tel" id="" class="form-control" placeholder="Phone">
+                            <input type="text" name="tel" id="" class="form-control" placeholder="Phone" required>
                         </div>
                         <div class="form-group col-md-3">
-                            <input type="email" name="email" id="" class="form-control" placeholder="Email">
+                            <input type="email" name="email" id="" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="form-group col-md-2">
                             <button class="btn btn-success btn-block" type="submit" name="add">Save</button>

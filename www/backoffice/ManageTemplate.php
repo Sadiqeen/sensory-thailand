@@ -15,8 +15,6 @@ require_once __DIR__.'/layout/navbar.php';
     <div class="alert alert-info text-center">
         <strong>จัดการชุดคำถาม!</strong>
     </div>
-
-    <!-- Notification -->
     <!-- Alert -->
     <?php if (isset($_SESSION['success'])): ?>
     <div class="alert alert-success">
@@ -24,7 +22,7 @@ require_once __DIR__.'/layout/navbar.php';
         <strong>Success!</strong> <?php echo $_SESSION['success'];  unset($_SESSION['success']);?>
     </div>
     <?php endif; ?>
-
+    <!-- End alert -->
     <div class="row" style="margin-bottom:80px">
         <div class="col-md-12">
             <div class="card">

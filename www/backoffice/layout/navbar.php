@@ -22,25 +22,35 @@
                     <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Template</a>
                     <div class="dropdown-menu" aria-labelledby="user">
-                        <a class="dropdown-item" href="<?php __ROOT__ ?>/backoffice/TestTemplate.php">Create new Template</a>
-                        <a class="dropdown-item" href="<?php __ROOT__ ?>/backoffice/ManageTemplate.php">Manage Template</a>
+                        <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/TestTemplate.php">Create new Template</a>
+                        <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/ManageTemplate.php">Manage Template</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">Test</a>
                     <div class="dropdown-menu" aria-labelledby="test">
-                        <a class="dropdown-item" href="<?php __ROOT__ ?>/backoffice/AddTest.php">Create new Test</a>
+                        <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/AddTest.php">Create new Test</a>
                         <a class="dropdown-item" href="./manageTest.html">Manage Test</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?php __ROOT__ ?>/backoffice/Organization.php" id="organization" aria-expanded="false">Organization</a>
+                    <a class="nav-link" href="<?php echo __HOST__ ?>/backoffice/Organization.php" id="organization" aria-expanded="false">Organization</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="../admin.html">Sign out</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"
+                        onclick="event.preventDefault();$('#logout-form').submit();"
+                    >Sign out</a>
+                </li>
             </ul>
         </div>
     </nav>
     <!-- End NAV bar -->
+
+    <!-- Logout form -->
+    <form id="logout-form" action="<?php echo __HOST__ ?>/classes/AuthenticateClass.php" method="POST" style="display: none;">
+        <input type="hidden" name="logout">
+    </form>
+    <!-- End Logout form -->

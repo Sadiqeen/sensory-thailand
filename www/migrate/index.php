@@ -85,12 +85,20 @@ $capsule->schema()->create('users', function ($table) {
     $table->string('username');
     $table->string('password');
     $table->string('email');
+    $table->integer('position');
     $table->timestamps();
 });
 
 // Default value
 $capsule->table('test_methods')->insert([
     'name' => '9-point hedonic scaling'
+]);
+
+$capsule->table('users')->insert([
+    'username' => 'admin',
+    'password' => '$2y$10$gWCkuw2VBpI6.CMAxiHKe.5wW5CMbQ8oZb8662hPhRTs7.PXi5jG2',
+    'email' => 'admin@localhost.com',
+    'position' => '1'
 ]);
 
 echo "Migrate done";

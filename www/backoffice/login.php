@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__ . '/../boot/load.php';
+
+use Classes\MiddlewareClass;
+MiddlewareClass::auth();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +44,14 @@
     <div class="container" style="height: 100vh;">
         <div class="row align-items-center h-100">
             <div class="col-md-6 mx-auto">
+                <!-- Alert -->
+                <?php if (isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Error!</strong> <?php echo $_SESSION['error'];  unset($_SESSION['error']);?>
+                </div>
+                <?php endif; ?>
+                <!-- End alert -->
                 <div class="card">
                     <div class="card-body text-center">
                         <h4 class="card-title alert alert-info">Administrator</h4>

@@ -5,6 +5,9 @@ session_start();
 if (!defined('__ROOT__')) {
     define('__ROOT__', $_SERVER['DOCUMENT_ROOT']); 
 }
+if (!defined('__HOST__')) {
+    define('__HOST__', 'http://'.$_SERVER['HTTP_HOST']); 
+}
 require_once __ROOT__.'/vendor/autoload.php';
 // end-autoload
 
