@@ -2,7 +2,6 @@
 require_once __DIR__ . '/../boot/load.php'; 
 
 use Classes\TemplateClass;
-use Classes\UploadClass;
 use Model\OrganizationModel;
 use Model\TestMethodsModel;
 

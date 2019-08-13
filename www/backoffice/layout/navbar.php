@@ -14,8 +14,8 @@
                     <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">User</a>
                     <div class="dropdown-menu" aria-labelledby="user">
-                        <a class="dropdown-item" href="./addUser.html">Create new User</a>
-                        <a class="dropdown-item" href="./manageUser.html">Manage user</a>
+                        <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/AddUser.php">Create new User</a>
+                        <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/ManageUsers.php">Manage user</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

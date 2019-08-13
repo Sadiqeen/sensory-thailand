@@ -22,7 +22,7 @@ class OrganizationClass
 
     public function getAllOrganization()
     {
-        $og = OrganizationModel::limit(15)->get();
+        $og = OrganizationModel::all();
         return $og;
     }
 }
