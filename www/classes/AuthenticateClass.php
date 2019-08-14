@@ -29,7 +29,7 @@ class AuthenticateClass
         } else {
             $_SESSION["error"] = "ชื่อผู้ใช้ไม่ถูกต้อง";
         }
-        return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/login.php');
+        return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/Login.php');
     }
 
     private function checkExitstUser($username)
@@ -61,7 +61,7 @@ class AuthenticateClass
     public function logout()
     {
         unset($_SESSION['Auth']);
-        return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/login.php');
+        return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/Login.php');
     }
 }
 

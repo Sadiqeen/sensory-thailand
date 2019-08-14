@@ -9,7 +9,7 @@ class MiddlewareClass
     {
         $permission = $_SESSION['Auth']['position'] === 1 || $_SESSION['Auth']['position'] === 2;
         if (isset($_SESSION['Auth']) && $permission) {
-            return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/ManageTemplate.php');
+            return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/Dashboard.php');
         }
     }
 }
