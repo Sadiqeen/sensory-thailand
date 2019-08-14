@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../boot/load.php';
 
 use Classes\MiddlewareClass;
-MiddlewareClass::auth();
+MiddlewareClass::loginPage();
 ?>
 <!DOCTYPE html>
 <html lang="en">

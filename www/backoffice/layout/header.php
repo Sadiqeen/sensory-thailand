@@ -1,3 +1,7 @@
+<?php
+use Classes\MiddlewareClass;
+MiddlewareClass::auth();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
