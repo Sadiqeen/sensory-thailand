@@ -1,5 +1,6 @@
 <?php
 define('__ROOT__', $_SERVER['DOCUMENT_ROOT']); 
+define('__HOST__', 'http://'.$_SERVER['HTTP_HOST']); 
 require_once __ROOT__.'/vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::create(__ROOT__);
@@ -85,7 +86,13 @@ $capsule->schema()->create('users', function ($table) {
     $table->string('username');
     $table->string('password');
     $table->string('email');
+    $table->string('firstname');
+    $table->string('lastname');
+    $table->string('age');
+    $table->string('phone');
     $table->integer('position');
+    $table->integer('organization_id');
+    $table->integer('status');
     $table->timestamps();
 });
 
@@ -98,7 +105,13 @@ $capsule->table('users')->insert([
     'username' => 'admin',
     'password' => '$2y$10$gWCkuw2VBpI6.CMAxiHKe.5wW5CMbQ8oZb8662hPhRTs7.PXi5jG2',
     'email' => 'admin@localhost.com',
-    'position' => '1'
-]);
-
-echo "Migrate done";
+    'firstname' => 'admin',
+    'lastname' => 'system',
+    'age' => '30',
+    'phone' => '0000000000',
+    'position' => '1',
+    'organization_id' => '0',
+    'status' => '1',
+    ]);
+    
+echo "Migrate done <br/> <a href='".__HOST__."'>Home</a>";

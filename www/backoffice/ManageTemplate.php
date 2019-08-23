@@ -15,14 +15,9 @@ require_once __DIR__.'/layout/navbar.php';
     <div class="alert alert-info text-center">
         <strong>จัดการชุดคำถาม!</strong>
     </div>
-    <!-- Alert -->
-    <?php if (isset($_SESSION['success'])): ?>
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Success!</strong> <?php echo $_SESSION['success'];  unset($_SESSION['success']);?>
-    </div>
-    <?php endif; ?>
-    <!-- End alert -->
+    
+    <?php require_once __DIR__.'/elements/handle_alert.php'; ?>
+    
     <div class="row" style="margin-bottom:80px">
         <div class="col-md-12">
             <div class="card">

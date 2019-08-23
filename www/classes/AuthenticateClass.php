@@ -18,16 +18,24 @@ class AuthenticateClass
                 {
                     $userInfo = $user->where('email', $username)->first();
                 }
-                $_SESSION['Auth'] = array(
-                    'username' => $userInfo->username,
-                    'position' => $userInfo->position,
-                    'email' => $userInfo->email
-                );
+
+                if ($userInfo->status !== 1) {
+                    $_SESSION["error"] = ["บัญชีของคุณถูกปิดกั้นโดยผู้ดูแลระบบ"];
+                } else {
+                    $_SESSION['auth'] = array(
+                        'id' => $userInfo->id,
+                        'username' => $userInfo->username,
+                        'name' => $userInfo->firstname.' '.$userInfo->lastname,
+                        'position' => $userInfo->position,
+                        'email' => $userInfo->email
+                    );
+                }
+               
             } else {
-                $_SESSION["error"] = "รหัสผ่านไม่ถูกต้อง";
+                $_SESSION["error"] = ["รหัสผ่านไม่ถูกต้อง"];
             }
         } else {
-            $_SESSION["error"] = "ชื่อผู้ใช้ไม่ถูกต้อง";
+            $_SESSION["error"] = ["ชื่อผู้ใช้ไม่ถูกต้อง"];
         }
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/Login.php');
     }
@@ -60,7 +68,7 @@ class AuthenticateClass
 
     public function logout()
     {
-        unset($_SESSION['Auth']);
+        unset($_SESSION['auth']);
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/Login.php');
     }
 }

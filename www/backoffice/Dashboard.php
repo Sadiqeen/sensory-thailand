@@ -61,11 +61,20 @@ require_once __DIR__.'/layout/navbar.php';
     <strong>Organization</strong>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
         <a href="<?php echo __HOST__ ?>/backoffice/Organization.php" class="text-center btn btn-block">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Manage Organization</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="<?php echo __HOST__ ?>/migrate" class="text-center btn btn-block">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Migrate Database</h4>
                 </div>
             </div>
         </a>

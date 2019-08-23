@@ -13,7 +13,7 @@ class UploadClass
         {
             return getenv('IMAGE_PATH').$file_name.'.'.$ext;
         } else {
-            $_SESSION["error"] = "ผิดพลาด";
+            $_SESSION["error"] = ["ผิดพลาด"];
             return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/AddTest.php');
         }
     }

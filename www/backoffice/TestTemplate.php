@@ -10,19 +10,7 @@ require_once __DIR__.'/layout/navbar.php';
         <strong>เพิ่มชุคคำถาม!</strong>
     </div>
 
-    <!-- Alert -->
-    <?php if (isset($_SESSION['success'])): ?>
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Success!</strong> <?php echo $_SESSION['success'];  unset($_SESSION['success']);?>
-    </div>
-    <?php endif; ?>
-    <?php if (isset($_SESSION['error'])): ?>
-    <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Success!</strong> <?php echo $_SESSION['error'];  unset($_SESSION['error']);?>
-    </div>
-    <?php endif; ?>
+    <?php require_once __DIR__.'/elements/handle_alert.php'; ?>
 
     <div class="row" style="margin-bottom:80px">
         <!-- Test -->

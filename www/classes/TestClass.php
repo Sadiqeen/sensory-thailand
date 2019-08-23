@@ -43,10 +43,10 @@ class TestClass
             $question->image = $path;
             $question->save();
 
-            $_SESSION["success"] = "เพิ่มการทดสอบสำเร็จ";
-
-            return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/AddTest.php');
         }
+        $_SESSION["success"] = "เพิ่มการทดสอบสำเร็จ";
+
+        return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/AddTest.php');
 
     }
 

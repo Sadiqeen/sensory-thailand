@@ -10,5 +10,12 @@ class UsersModel extends Model
 
     protected $primaryKey = 'id'; 
 
-    protected $fillable = ['username', 'password', 'email'];
+    protected $with = ['organization'];
+
+    protected $fillable = ['username', 'password', 'email', 'phone', 'firstname', 'lastname', 'organization_id', 'age', 'status'];
+
+    public function organization()
+    {
+        return $this->belongsTo('Model\OrganizationModel');
+    }
 }

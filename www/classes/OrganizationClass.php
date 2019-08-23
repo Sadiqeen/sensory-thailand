@@ -15,7 +15,7 @@ class OrganizationClass
         $og->email = $email;
         $og->save();
 
-        $_SESSION["success"] = "เพิ่มองค์กรสำเร็จ";
+        $_SESSION["success"] = ["เพิ่มองค์กรสำเร็จ"];
 
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/Organization.php');
     }

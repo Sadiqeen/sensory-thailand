@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo __HOST__ ?>/backoffice/Dashboard.php">Dashboard</span></a>
+                <a class="nav-link" href="<?php echo __HOST__ ?>/backoffice/Dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
@@ -42,8 +42,12 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#" onclick="event.preventDefault();$('#logout-form').submit();">Sign out</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="account" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false"><?php echo $_SESSION['auth']['name'] ?></a>
+                <div class="dropdown-menu" aria-labelledby="account">
+                    <a class="dropdown-item" href="#" onclick="event.preventDefault();$('#logout-form').submit();">Sign out</a>
+                </div>
             </li>
         </ul>
     </div>

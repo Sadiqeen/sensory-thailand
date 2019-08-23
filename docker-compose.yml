@@ -1,31 +1,33 @@
-version: "3"
-
+version: '3'
 services:
   webserver:
-    build: 
+    build:
       context: ./bin/webserver
-    container_name: 'sensory-webserver'
-    restart: 'always'
+    container_name: sensory-webserver
+    restart: always
     ports:
-      - "8090:80"
-      - "8092:443"
-    links: 
+      - '8090:80'
+      - '8092:443'
+    links:
       - mysql
-    volumes: 
-      - ${DOCUMENT_ROOT-./www}:/var/www/html
-      - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
-      - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
-      - ${LOG_DIR-./logs/apache2}:/var/log/apache2
+    volumes:
+      - '${DOCUMENT_ROOT-./www}:/var/www/html'
+      - '${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini'
+      - '${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled'
+      - '${LOG_DIR-./logs/apache2}:/var/log/apache2'
   mysql:
     build: ./bin/mysql
-    container_name: 'sensory-mysql'
-    restart: 'always'
-    command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_unicode_ci']
+    container_name: sensory-mysql
+    restart: always
+    command:
+      - mysqld
+      - '--character-set-server=utf8'
+      - '--collation-server=utf8_unicode_ci'
     ports:
-      - "3306:3306"
-    volumes: 
-      - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
-      - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
+      - '3306:3306'
+    volumes:
+      - '${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql'
+      - '${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql'
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: sensory
@@ -33,7 +35,7 @@ services:
       MYSQL_PASSWORD: toor
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: 'sensory-phpmyadmin'
+    container_name: sensory-phpmyadmin
     links:
       - mysql
     environment:
@@ -41,5 +43,5 @@ services:
       PMA_PORT: 3306
     ports:
       - '8091:80'
-    volumes: 
+    volumes:
       - /sessions

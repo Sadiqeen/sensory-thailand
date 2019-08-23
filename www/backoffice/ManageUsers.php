@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/../boot/load.php';
 
+use Classes\UsersClass;
+$data = UsersClass::getAllUsers();
+
 require_once __DIR__.'/layout/header.php';
 require_once __DIR__.'/layout/navbar.php';
 ?>
@@ -9,9 +12,11 @@ require_once __DIR__.'/layout/navbar.php';
 <div class="container mt-3">
 
     <div class="alert alert-info text-center">
-        <strong>Manage User!</strong>
+        <strong>จัดการผู้ใช้!</strong>
     </div>
 
+    <?php require_once __DIR__.'/elements/handle_alert.php'; ?>
+    
     <div class="row" style="margin-bottom:80px">
         <div class="col-md-12">
             <div class="card">
@@ -20,253 +25,35 @@ require_once __DIR__.'/layout/navbar.php';
                         <table class="table" id="manageUsers">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>E-mail</th>
-                                    <th>Oganization</th>
-                                    <th>Action</th>
+                                    <th>ชื่อผู้ใช้</th>
+                                    <th>ชื่อ-สกุล</th>
+                                    <th>เบอร์โทรศัพท์</th>
+                                    <th>อีเมล</th>
+                                    <th>องค์กร</th>
+                                    <th>ดำเนินการ</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
+                                <?php foreach ($data as $value) : ?>
+                                <tr <?php echo $value['status'] !== 1 ? "class='table-danger'" : ''; ?>>
+                                    <td scope="row"><?php echo $value['username'] ?></td>
+                                    <td><?php echo $value['firstname'] ?> <?php echo $value['lastname'] ?></td>
+                                    <td><?php echo $value['phone'] ?></td>
+                                    <td><?php echo $value['email'] ?></td>
+                                    <td><?php echo $value['organization']['name'] ?></td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="actionButton">
                                             <a href="#" class="btn btn-sm btn-primary">Detail</a>
-                                            <a href="#" class="btn btn-sm btn-warning">Update</a>
-                                            <a href="#" class="btn btn-sm btn-danger">Ban</a>
+                                            <a href="<?php echo __HOST__ ?>/backoffice/UpdateUser.php?id=<?php echo $value['id'] ?>" class="btn btn-sm btn-warning">Update</a>
+                                            <?php if($value['status'] !== 1) : ?>
+                                                <a href="<?php echo __HOST__ ?>/classes/UsersClass.php?unbanned=<?php echo $value['id'] ?>" class="btn btn-sm btn-danger">unbanned</a>
+                                            <?php else: ?>
+                                                <a href="<?php echo __HOST__ ?>/classes/UsersClass.php?ban=<?php echo $value['id'] ?>"" class="btn btn-sm btn-danger">ban</a>
+                                            <?php endif; ?>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="row">Busree</td>
-                                    <td>Busree Hasa</td>
-                                    <td>085-080-4110</td>
-                                    <td>bus@ftu.ac.th</td>
-                                    <td>Adjust</td>
-                                    <td>
-                                        <div class="btn-group" role="group" aria-label="actionButton">
-                                            <button type="button" class="btn btn-sm btn-primary">Detail</button>
-                                            <button type="button" class="btn btn-sm btn-warning">Update</button>
-                                            <button type="button" class="btn btn-sm btn-danger">Ban</button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

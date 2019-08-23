@@ -16,7 +16,7 @@ class TemplateClass
     public function addTemplate($template_name, $question_quantity, $questions)
     {
         if (TestTemplateInfoModel::where('template_name', $template_name)->first()) {
-            $_SESSION["error"] = "ชื่อชุดคำถามนี้ถูกใช้แล้ว";
+            $_SESSION["error"] = ["ชื่อชุดคำถามนี้ถูกใช้แล้ว"];
             return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/TestTemplate.php');
         }
         $template_info = new TestTemplateInfoModel;
