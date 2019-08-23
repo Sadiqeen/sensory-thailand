@@ -5,8 +5,8 @@
  	`docker-compose exec webserver composer update`<br/>
 	`docker-compose up`
  3. If docker ran correctly you can vitsit system at<br/>
-	`http://localhost:8081/` => Web page<br/>
-	`http://localhost:8080/` => phpMyadmin
+	`http://localhost:8090/` => Web page<br/>
+	`http://localhost:8091/` => phpMyadmin
  4. Access to page `migrate/index.php` to migrate database<br/>
 	`http://localhost:8081/migrate/index.php`
  5. Project is ready!
