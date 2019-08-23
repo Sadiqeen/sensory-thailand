@@ -7,17 +7,18 @@ require_once __DIR__.'/layout/navbar.php';
 
 
 <!-- Start Content -->
-<div class="container mt-3">
+<div class="container mt-3 mb-5 pb-4">
 <!-- user -->
 <div class="alert alert-primary text-center" role="alert">
-    <strong>User</strong>
+    <strong>บัญชีผู้ใช้</strong>
 </div>
 <div class="row">
     <div class="col-md-6">
         <a href="<?php echo __HOST__ ?>/backoffice/AddUser.php" class="text-center btn btn-block">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Add User</h4>
+                    <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i><br/>
+                    <span class="card-title">เพิ่มบัญชีผู้ใช้</span>
                 </div>
             </div>
         </a>
@@ -26,7 +27,8 @@ require_once __DIR__.'/layout/navbar.php';
         <a href="<?php echo __HOST__ ?>/backoffice/ManageUsers.php" class="text-center btn btn-block">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Manage User</h4>
+                    <i class="fa fa-users fa-3x" aria-hidden="true"></i><br/>
+                    <span class="card-title">จัดการบัญชีผู้ใช้</span>
                 </div>
             </div>
         </a>
@@ -34,14 +36,15 @@ require_once __DIR__.'/layout/navbar.php';
 </div>
 <!-- Test -->
 <div class="alert alert-success text-center mt-3" role="alert">
-    <strong>Test</strong>
+    <strong>การทดสอบ</strong>
 </div>
 <div class="row">
     <div class="col-md-6">
         <a href="<?php echo __HOST__ ?>/backoffice/AddTest.php" class="text-center btn btn-block">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Add Test</h4>
+                    <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i><br/>
+                    <span class="card-title">เพิ่มการทดสอบ</span>
                 </div>
             </div>
         </a>
@@ -50,7 +53,8 @@ require_once __DIR__.'/layout/navbar.php';
         <a href="./manageTest.html" class="text-center btn btn-block">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Manage Test</h4>
+                    <i class="fa fa-cogs fa-3x" aria-hidden="true"></i><br/>
+                    <span class="card-title">จัดการการทดสอบ</span>
                 </div>
             </div>
         </a>
@@ -58,14 +62,15 @@ require_once __DIR__.'/layout/navbar.php';
 </div>
 <!-- Organization -->
 <div class="alert alert-warning text-center mt-3" role="alert">
-    <strong>Organization</strong>
+    <strong>องค์กร</strong>
 </div>
 <div class="row">
     <div class="col-md-8">
         <a href="<?php echo __HOST__ ?>/backoffice/Organization.php" class="text-center btn btn-block">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Manage Organization</h4>
+                    <i class="fa fa-university fa-3x" aria-hidden="true"></i><br/>
+                    <span class="card-title">จัดการองค์กร</span>
                 </div>
             </div>
         </a>
@@ -74,7 +79,8 @@ require_once __DIR__.'/layout/navbar.php';
         <a href="<?php echo __HOST__ ?>/migrate" class="text-center btn btn-block">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Migrate Database</h4>
+                    <i class="fa fa-database fa-3x" aria-hidden="true"></i><br/>
+                    <span class="card-title">Migrate Database</span>
                 </div>
             </div>
         </a>

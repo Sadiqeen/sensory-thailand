@@ -43,7 +43,7 @@ require_once __DIR__.'/layout/navbar.php';
                                     <td><?php echo $value['organization']['name'] ?></td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="actionButton">
-                                            <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                                            <a href="#" onclick="get_user_detail(<?php echo $value['id'] ?>)" class="btn btn-sm btn-primary">Detail</a>
                                             <a href="<?php echo __HOST__ ?>/backoffice/UpdateUser.php?id=<?php echo $value['id'] ?>" class="btn btn-sm btn-warning">Update</a>
                                             <?php if($value['status'] !== 1) : ?>
                                                 <a href="<?php echo __HOST__ ?>/classes/UsersClass.php?unbanned=<?php echo $value['id'] ?>" class="btn btn-sm btn-danger">unbanned</a>
@@ -63,10 +63,73 @@ require_once __DIR__.'/layout/navbar.php';
     </div>
     <!-- End Content -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="user_detail" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ข้อมูลผู้ใช้</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td scope="row">ชื่อผู้ใช้</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>ชื่อ-สกุล</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>เบอร์โทรศัพท์</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>อีเมล</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>องค์กร</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>สถานะ</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End modal -->
+
     <?php require_once __DIR__.'/layout/footer.php'; ?>
 
     <script>
         $('#manageUsers').DataTable()
+
+        function get_user_detail(id) {
+            $('#user_detail').modal('show');
+            // $.ajax({
+            //     type: "get",
+            //     url: "<?php __ROOT__ ?>/classes/TemplateClass.php",
+            //     data: "templateId="+templateID,
+            //     dataType: "json",
+            //     success: function (response) {
+            //         $("#questions").empty();
+            //         writeQuestion(response);
+            //     }
+            // });
+        }
+       
     </script>
 
     <?php require_once __DIR__.'/layout/foot.php'; ?>
