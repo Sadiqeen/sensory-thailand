@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('__ROOT__', $_SERVER['DOCUMENT_ROOT']); 
 define('__HOST__', 'http://'.$_SERVER['HTTP_HOST']); 
 require_once __ROOT__.'/vendor/autoload.php';
@@ -105,13 +106,13 @@ $capsule->table('users')->insert([
     'username' => 'admin',
     'password' => '$2y$10$gWCkuw2VBpI6.CMAxiHKe.5wW5CMbQ8oZb8662hPhRTs7.PXi5jG2',
     'email' => 'admin@localhost.com',
-    'firstname' => 'admin',
-    'lastname' => 'system',
+    'firstname' => ' ',
+    'lastname' => 'administrator',
     'age' => '30',
     'phone' => '0000000000',
     'position' => '1',
     'organization_id' => '0',
     'status' => '1',
-    ]);
-    
+]);
+session_destroy();
 echo "Migrate done <br/> <a href='".__HOST__."'>Home</a>";

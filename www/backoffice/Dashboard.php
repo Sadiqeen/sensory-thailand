@@ -14,22 +14,18 @@ require_once __DIR__.'/layout/navbar.php';
 </div>
 <div class="row">
     <div class="col-md-6">
-        <a href="<?php echo __HOST__ ?>/backoffice/AddUser.php" class="text-center btn btn-block">
-            <div class="card">
-                <div class="card-body">
-                    <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i><br/>
-                    <span class="card-title">เพิ่มบัญชีผู้ใช้</span>
-                </div>
+        <a href="<?php echo __HOST__ ?>/backoffice/AddUser.php" class="text-center btn btn-block bg-white border">
+            <div class="py-3">
+                <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i><br/>
+                <span class="card-title">เพิ่มบัญชีผู้ใช้</span>
             </div>
         </a>
     </div>
     <div class="col-md-6">
-        <a href="<?php echo __HOST__ ?>/backoffice/ManageUsers.php" class="text-center btn btn-block">
-            <div class="card">
-                <div class="card-body">
-                    <i class="fa fa-users fa-3x" aria-hidden="true"></i><br/>
-                    <span class="card-title">จัดการบัญชีผู้ใช้</span>
-                </div>
+        <a href="<?php echo __HOST__ ?>/backoffice/ManageUsers.php" class="text-center btn btn-block bg-white border">
+            <div class="py-3">
+                <i class="fa fa-users fa-3x" aria-hidden="true"></i><br/>
+                <span class="card-title">จัดการบัญชีผู้ใช้</span>
             </div>
         </a>
     </div>
@@ -40,22 +36,18 @@ require_once __DIR__.'/layout/navbar.php';
 </div>
 <div class="row">
     <div class="col-md-6">
-        <a href="<?php echo __HOST__ ?>/backoffice/AddTest.php" class="text-center btn btn-block">
-            <div class="card">
-                <div class="card-body">
-                    <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i><br/>
-                    <span class="card-title">เพิ่มการทดสอบ</span>
-                </div>
+        <a href="<?php echo __HOST__ ?>/backoffice/AddTest.php" class="text-center btn btn-block bg-white border">
+            <div class="py-3">
+                <i class="fa fa-plus-square fa-3x" aria-hidden="true"></i><br/>
+                <span class="card-title">สร้างการทดสอบใหม่</span>
             </div>
         </a>
     </div>
     <div class="col-md-6">
-        <a href="./manageTest.html" class="text-center btn btn-block">
-            <div class="card">
-                <div class="card-body">
-                    <i class="fa fa-cogs fa-3x" aria-hidden="true"></i><br/>
-                    <span class="card-title">จัดการการทดสอบ</span>
-                </div>
+        <a href="./manageTest.html" class="text-center btn btn-block bg-white border">
+            <div class="py-3">
+                <i class="fa fa-cogs fa-3x" aria-hidden="true"></i><br/>
+                <span class="card-title">จัดการการทดสอบ</span>
             </div>
         </a>
     </div>
@@ -66,22 +58,18 @@ require_once __DIR__.'/layout/navbar.php';
 </div>
 <div class="row">
     <div class="col-md-8">
-        <a href="<?php echo __HOST__ ?>/backoffice/Organization.php" class="text-center btn btn-block">
-            <div class="card">
-                <div class="card-body">
-                    <i class="fa fa-university fa-3x" aria-hidden="true"></i><br/>
-                    <span class="card-title">จัดการองค์กร</span>
-                </div>
+        <a href="<?php echo __HOST__ ?>/backoffice/Organization.php" class="text-center btn btn-block bg-white border">
+            <div class="py-3">
+                <i class="fa fa-university fa-3x" aria-hidden="true"></i><br/>
+                <span class="card-title">จัดการองค์กร</span>
             </div>
         </a>
     </div>
     <div class="col-md-4">
-        <a href="<?php echo __HOST__ ?>/migrate" class="text-center btn btn-block">
-            <div class="card">
-                <div class="card-body">
-                    <i class="fa fa-database fa-3x" aria-hidden="true"></i><br/>
-                    <span class="card-title">Migrate Database</span>
-                </div>
+        <a href="<?php echo __HOST__ ?>/migrate" class="text-center btn btn-block bg-white border">
+            <div class="py-3">
+                <i class="fa fa-database fa-3x" aria-hidden="true"></i><br/>
+                <span class="card-title">Migrate Database</span>
             </div>
         </a>
     </div>

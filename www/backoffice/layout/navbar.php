@@ -8,37 +8,35 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo __HOST__ ?>/backoffice/Dashboard.php">Dashboard</a>
+                <a class="nav-link" href="<?php echo __HOST__ ?>/backoffice/Dashboard.php">แผงควบคุม</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">User</a>
+                    aria-expanded="false">บัญชีผู้ใช้</a>
                 <div class="dropdown-menu" aria-labelledby="user">
-                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/AddUser.php">Create new User</a>
-                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/ManageUsers.php">Manage user</a>
+                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/AddUser.php">สร้างบัญชีผู้ใช้</a>
+                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/ManageUsers.php">จัดการบัญชีผู้ใช้</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="user" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">Template</a>
+                    aria-expanded="false">ชุดคำถาม</a>
                 <div class="dropdown-menu" aria-labelledby="user">
-                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/TestTemplate.php">Create new
-                        Template</a>
-                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/ManageTemplate.php">Manage
-                        Template</a>
+                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/TestTemplate.php">สร้างชุดคำถามใหม่</a>
+                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/ManageTemplate.php">จัดการชุดคำถาม</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">Test</a>
+                    aria-expanded="false">การทดสอบ</a>
                 <div class="dropdown-menu" aria-labelledby="test">
-                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/AddTest.php">Create new Test</a>
-                    <a class="dropdown-item" href="./manageTest.html">Manage Test</a>
+                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/AddTest.php">สร้างการทดสอบใหม่</a>
+                    <a class="dropdown-item" href="<?php echo __HOST__ ?>/backoffice/ManageTest.php">จัดการการทดสอบ</a>
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo __HOST__ ?>/backoffice/Organization.php" id="organization"
-                    aria-expanded="false">Organization</a>
+                    aria-expanded="false">จัดการองค์กร</a>
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">

@@ -16,7 +16,7 @@ class TemplateClass
     public function addTemplate($template_name, $question_quantity, $questions)
     {
         if (TestTemplateInfoModel::where('template_name', $template_name)->first()) {
-            $_SESSION["error"] = ["ชื่อชุดคำถามนี้ถูกใช้แล้ว"];
+            array_push($_SESSION["error"], "ชื่อชุดคำถามนี้ถูกใช้แล้ว!");
             return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/TestTemplate.php');
         }
         $template_info = new TestTemplateInfoModel;
@@ -31,7 +31,7 @@ class TemplateClass
             $question->save();
         }
 
-        $_SESSION["success"] = "เพิ่มคำถามสำเร็จ";
+        array_push($_SESSION["success"], "เพิ่มคำถามสำเร็จ!");
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/TestTemplate.php');
     }
 
@@ -40,8 +40,7 @@ class TemplateClass
         $template_info = new TestTemplateInfoModel;
         $template_info->destroy($id);
 
-        $_SESSION["success"] = "ลบข้อมูลสำเร็จ";
-
+        array_push($_SESSION["success"], "ลบข้อมูลสำเร็จ!");
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/ManageTemplate.php');
     }
 

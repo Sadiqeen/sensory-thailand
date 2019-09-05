@@ -7,7 +7,7 @@ require_once __DIR__.'/layout/navbar.php';
 <div class="container mt-3">
 
     <div class="alert alert-info text-center">
-        <strong>เพิ่มชุคคำถาม!</strong>
+        <strong>เพิ่มชุดคำถาม!</strong>
     </div>
 
     <?php require_once __DIR__.'/elements/handle_alert.php'; ?>

@@ -11,4 +11,9 @@ class OrganizationModel extends Model
     protected $primaryKey = 'id'; 
 
     protected $fillable = ['name', 'tel', 'email'];
+
+    public function users()
+    {
+        return $this->hasMany('Model\UsersModel', 'organization_id', 'id');
+    }
 }

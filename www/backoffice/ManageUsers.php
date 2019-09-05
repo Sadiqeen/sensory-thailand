@@ -116,6 +116,11 @@ require_once __DIR__.'/layout/navbar.php';
     <script>
         $('#manageUsers').DataTable()
 
+        let searchParams = new URLSearchParams(window.location.search)
+        if (searchParams.has('og')) {
+            $('#manageUsers').DataTable().search( searchParams.get('og') ).draw();
+        }
+
         function get_user_detail(id) {
             $('#user_detail').modal('show');
             // $.ajax({

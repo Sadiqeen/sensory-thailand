@@ -68,7 +68,7 @@ class AuthenticateClass
 
     public function logout()
     {
-        unset($_SESSION['auth']);
+        session_destroy();
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/Login.php');
     }
 }

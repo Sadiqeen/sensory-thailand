@@ -36,13 +36,16 @@ class UsersClass
         $phone = $user->where('phone', $userInfo['phone'])->first();
         $email = $user->where('email', strtolower($userInfo['email']))->first();
         if ($username) {
-            $_SESSION["error"] = ["This username is exist!"];
-            return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/AddUser.php');
-        } elseif ($phone) {
-            $_SESSION["error"] = ["This phone is exist!"];
-            return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/AddUser.php');
-        } elseif ($email) {
-            $_SESSION["error"] = ["This email is exist!"];
+            array_push($_SESSION["error"], "ชื่อผู้ใช้นี้มีอยู่แล้ว!");
+        }
+        if ($phone) {
+            array_push($_SESSION["error"], "เบอร์โทรนี้มีอยู่แล้ว!");
+        }
+        if ($email) {
+            array_push($_SESSION["error"], "อีเมลล์นี้มีอยู่แล้ว!");
+        }
+
+        if ($_SESSION["error"]) {
             return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/AddUser.php');
         }
 
@@ -59,7 +62,8 @@ class UsersClass
         $user->status = 1;
         $user->save();
 
-        $_SESSION["success"] = "เพิ่มผู้ใช้สำเร็จ";
+        array_push($_SESSION["success"], "เพิ่มผู้ใช้สำเร็จ!");
+
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/AddUser.php');
     }
 
@@ -83,7 +87,9 @@ class UsersClass
         $user = $users->find($id);
         $user->status = 0;
         $user->save();
-        $_SESSION["success"] = "ปิดกั้นผู้ใช้สำเร็จ";
+
+        array_push($_SESSION["success"], "ปิดกั้นผู้ใช้สำเร็จ!");
+
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/ManageUsers.php');
     }
 
@@ -93,7 +99,9 @@ class UsersClass
         $user = $users->find($id);
         $user->status = 1;
         $user->save();
-        $_SESSION["success"] = "ยกเลิกการปิดกั้นผู้ใช้สำเร็จ";
+
+        array_push($_SESSION["success"], "ยกเลิกการปิดกั้นผู้ใช้สำเร็จ!");
+
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/ManageUsers.php');
     }
     
@@ -144,13 +152,16 @@ class UsersClass
                         ->first();
 
         if ($username) {
-            $_SESSION["error"] = ["This username is exist!"];
-            return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/UpdateUser.php?id='.$_SESSION['update_id']);
-        } elseif ($phone) {
-            $_SESSION["error"] = ["This phone is exist!"];
-            return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/UpdateUser.php?id='.$_SESSION['update_id']);
-        } elseif ($email) {
-            $_SESSION["error"] = ["This email is exist!"];
+            array_push($_SESSION["error"], "ชื่อผู้ใช้นี้มีอยู่แล้ว!");
+        }
+        if ($phone) {
+            array_push($_SESSION["error"], "เบอร์โทรนี้มีอยู่แล้ว!");
+        }
+        if ($email) {
+            array_push($_SESSION["error"], "อีเมลล์นี้มีอยู่แล้ว!");
+        }
+
+        if ($_SESSION["error"]) {
             return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/UpdateUser.php?id='.$_SESSION['update_id']);
         }
 
@@ -169,7 +180,9 @@ class UsersClass
         $user->save();
 
         unset($_SESSION['update_id']);
-        $_SESSION["success"] = "แก้ไขข้อมูลสำเร็จ";
+
+        array_push($_SESSION["success"], "แก้ไขข้อมูลสำเร็จ!");
+
         return header('Location: http://'.$_SERVER["HTTP_HOST"].'/backoffice/ManageUsers.php');
         
     }

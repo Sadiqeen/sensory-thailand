@@ -100,8 +100,8 @@ require_once __DIR__.'/layout/navbar.php';
             </div>
         </div>
     </div>
+    <?php endif; ?>
 </div>
-<?php endif ?>
 <!-- End Content -->
 
 <?php require_once __DIR__.'/layout/footer.php'; ?>

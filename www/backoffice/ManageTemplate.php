@@ -23,7 +23,7 @@ require_once __DIR__.'/layout/navbar.php';
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive-md table-striped">
-                        <table class="table" id="manageUser">
+                        <table class="table" id="manageTemplate">
                             <thead>
                                 <tr>
                                     <th>ชื่อชุดคำถาม</th>
@@ -42,10 +42,6 @@ require_once __DIR__.'/layout/navbar.php';
                                         <td><a href="<?php __ROOT__ ?>/classes/TemplateClass.php?del=<?php echo $value['id'] ?>" class="btn btn-sm btn-danger">Delete</a></td>
                                     </tr>
                                     <?php endforeach; ?>
-                                <?php else: ?>
-                                    <tr>
-                                        <td colspan="4" class="text-center"><strong>ไม่มีข้อมูล</strong></td>
-                                    </tr>
                                 <?php endif; ?>
                             </tbody>
                         </table>
@@ -60,7 +56,7 @@ require_once __DIR__.'/layout/navbar.php';
 <?php require_once __DIR__.'/layout/footer.php'; ?>
 
 <script>
-    $('#manageUser').DataTable();
+    $('#manageTemplate').DataTable();
 </script>
 
 <?php require_once __DIR__.'/layout/foot.php'; ?>
