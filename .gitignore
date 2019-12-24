@@ -1,8 +1,5 @@
 /.env
 /.vscode
-/config/*
-/data/*
-/logs/*
 .idea/modules.xml
 .idea/sensory-thailand.iml
 .idea/vcs.xml
