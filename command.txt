@@ -1,0 +1,7 @@
+cd laradock
+docker-compose up -d nginx mysql phpmyadmin workspace
+
+docker-compose exec --user laradock workspace bash
+
+
+docker-compose up -d --force-recreate --build php-fpm

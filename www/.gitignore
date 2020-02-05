@@ -1,9 +1,0 @@
-
-.DS_Store
-.idea/modules.xml
-.idea/sensory-thailand.iml
-.idea/vcs.xml
-.idea/workspace.xml
-.env
-vendor
-images/*
