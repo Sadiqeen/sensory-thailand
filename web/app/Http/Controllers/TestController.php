@@ -51,6 +51,18 @@ class TestController extends Controller
             $request->session()->put('progress', 1);
             $request->session()->save();
             return redirect()->route('test.create');
+        } else if ($request->session()->get('progress') == 1) {
+            $request->validate([
+                'question.*' => 'required|min:2|max:255',
+                'test_choice.*' => 'required',
+                'answer1.*' => 'required',
+                'answer2.*' => 'required',
+                'answer3.*' => 'required_unless:answer4.*,',
+                'answer4.*' => ''
+            ],
+            [
+                'answer3.*.required_unless' => 'The answer field is required unless answer 4 is in.',
+            ]);
         }
     }
 
@@ -94,8 +106,8 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $request->session()->flush();
     }
 }

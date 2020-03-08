@@ -20,7 +20,7 @@ class UserController extends Controller
         return Datatables::of($users)
             ->addColumn('action', function ($user) {
                 $edit_button = '<a href="'.route('user.edit', $user->id).'" class="btn btn-sm btn-primary mr-1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> แก้ไข</a>';
-                $del_button = '<a href="del-'.$user->id.'" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</a>';
+                $del_button = '<a href="#" onclick="delete_user(' . $user->id . ')" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> ลบ</a>';
                 return $edit_button . $del_button;
             })
             ->editColumn('id', 'ID: {{$id}}')

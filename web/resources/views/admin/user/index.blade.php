@@ -27,6 +27,10 @@
         </div>
     </div>
 </div>
+<form id="delete-user" method="POST" style="display: none;">
+    @method('DELETE')
+    @csrf
+</form>
 @endsection
 
 @push('styles')
@@ -36,6 +40,10 @@
 @push('scripts')
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
 <script>
+function delete_user(userId) {
+    $('#delete-user').attr('action', "/admin/user/" + userId).submit();
+}
+
 $(function() {
     $('#manage_users').DataTable({
         processing: true,

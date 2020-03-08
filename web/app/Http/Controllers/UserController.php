@@ -87,7 +87,7 @@ class UserController extends Controller
         $validated = $request->validated();
         $user = User::find($id);
         $user->update($validated);
-        return redirect()->route('user.index')->with('success','แก้ไขผู้ใช้สำเร็จ!');;
+        return redirect()->route('user.index')->with('success','แก้ไขผู้ใช้สำเร็จ!');
 
     }
 
@@ -99,7 +99,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id',$id)->delete();
+        return redirect()->route('user.index')->with('success','ลบผู้ใช้สำเร็จ!');
     }
 
     public function reset_password($id)

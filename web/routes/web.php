@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/', 'DashboardController@index')->name('dashboard');
 
     Route::resource('user', 'UserController');
     Route::post('user/{id}/reset_password', 'UserController@reset_password')->name('user.reset_password');
