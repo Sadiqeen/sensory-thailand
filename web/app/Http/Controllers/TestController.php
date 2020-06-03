@@ -28,6 +28,9 @@ class TestController extends Controller
             if ($progress === 1) {
                 return view('admin.test.create_pretest');
             }
+            if ($progress === 2) {
+                return view('admin.test.create_test');
+            }
         } else {
             return view('admin.test.create_info');
         }
@@ -63,6 +66,9 @@ class TestController extends Controller
             [
                 'answer3.*.required_unless' => 'The answer field is required unless answer 4 is in.',
             ]);
+            $request->session()->put('progress', 2);
+            $request->session()->save();
+            return redirect()->route('test.create');
         }
     }
 
@@ -106,8 +112,8 @@ class TestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
-        $request->session()->flush();
+        //
     }
 }

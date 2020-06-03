@@ -61,7 +61,7 @@
                     <a class="nav-link dropdown-toggle {{ request()->routeIs('test*') ? 'active' : '' }}" href="#" id="test" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">การทดสอบ</a>
                     <div class="dropdown-menu" aria-labelledby="test">
-                        <a class="dropdown-item {{ request()->routeIs('test.create') ? 'active' : '' }}" href="{{ route('test.create') }}">สร้างการทดสอบใหม่</a>
+                        <a class="dropdown-item {{ request()->routeIs('test-info.create') ? 'active' : '' }}" href="{{ route('test-info.create') }}">สร้างการทดสอบใหม่</a>
                         <a class="dropdown-item" href="#">จัดการการทดสอบ</a>
                     </div>
                 </li>

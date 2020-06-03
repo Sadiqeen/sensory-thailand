@@ -21,10 +21,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
+    // user
     Route::resource('user', 'UserController');
     Route::post('user/{id}/reset_password', 'UserController@reset_password')->name('user.reset_password');
 
-    Route::resource('test', 'TestController');
+    // sensory test
+    Route::prefix('sensory')->group(function () {
+        // test information
+        Route::get('test-info/create', 'TestInfoController@edit')->name('test-info.create');
+        Route::post('test-info/store', 'TestInfoController@store')->name('test-info.store');
+        Route::get('test-info/edit', 'TestInfoController@edit')->name('test-info.edit');
+
+        Route::resource('pretest', 'PretestController');
+        Route::resource('test-question', 'TestQuestionController');
+    });
 });
 
 
