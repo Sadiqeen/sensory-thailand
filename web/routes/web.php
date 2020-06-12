@@ -28,12 +28,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     // sensory test
     Route::prefix('sensory')->group(function () {
         // test information
-        Route::get('test-info/create', 'TestInfoController@edit')->name('test-info.create');
-        Route::post('test-info/store', 'TestInfoController@store')->name('test-info.store');
-        Route::get('test-info/edit', 'TestInfoController@edit')->name('test-info.edit');
+        Route::get('test-info/create', 'Sensory\CreateTestController@create_test_info')->name('test-info.create');
+        Route::post('test-info/store', 'Sensory\CreateTestController@store_test_info')->name('test-info.store');
 
-        Route::resource('pretest', 'PretestController');
-        Route::resource('test-question', 'TestQuestionController');
+        Route::get('pretest/create', 'Sensory\CreateTestController@create_pretest')->name('pretest.create');
+        Route::post('pretest/store', 'Sensory\CreateTestController@store_pretest')->name('pretest.store');
     });
 });
 

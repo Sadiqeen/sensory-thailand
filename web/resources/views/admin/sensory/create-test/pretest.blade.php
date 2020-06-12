@@ -6,21 +6,17 @@
 </div>
 @include('layouts.flash-message')
 <div class="row">
-    <div class="col-md-4 mb-4">
-        <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">1. ข้อมูลทั่วไป</a>
-            <a href="#" class="list-group-item list-group-item-action disabled">2. คำถามก่อนการทดสอบ</a>
-            <a href="#" class="list-group-item list-group-item-action disabled">3. คำถามในการทดสอบ</a>
-        </div>
+    <div class="col-md-3 mb-4">
+        @include('admin.sensory.create-test.progress')
     </div>
-    <div class="col-md-8">
-        <form action="" method="post">
+    <div class="col-md-9">
+        <form action="{{ route('pretest.store') }}" method="post">
             <div class="row">
                 @csrf
                 <div class="col-md-12 mb-3" id="Questions">
                     @if ( old('question') )
                     @foreach (old('question') as $item)
-                    <div class="card @if(!$loop->first) mt-3 @endif" id="question-{{ $loop->index }}">
+                    <div class="card mb-3" id="question-{{ $loop->index }}">
                         <div class="card-body row">
                             <div class="form-group col-md-8">
                                 <label for="">คำถาม</label>
@@ -35,7 +31,7 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleFormControlSelect1">รูปแบบการเลือก</label>
+                                <label for="">รูปแบบการเลือก</label>
                                 <select class="form-control" name="test_choice[]" id="">
                                     <option value="1" @if(old('test_choice')[$loop->index] == 1) selected
                                         @endif>เลือกได้หลายตัวเลือก</option>
@@ -106,15 +102,63 @@
                         </div>
                     </div>
                     @endforeach
+
+                    @elseif(Session::has('sensory_pretest'))
+                    @foreach (Session::get('sensory_pretest')['question'] as $item)
+                    <div class="card mb-3" id="question-{{ $loop->index }}">
+                        <div class="card-body row">
+                            <div class="form-group col-md-8">
+                                @if ($loop->last)
+                                <label for="">คำถาม
+                                    <a class="text-success" href="#" onclick="addQuestion({{ $loop->index }})" id="btn-{{ $loop->index }}">
+                                        <i class="fa fa-plus-square-o"></i>
+                                    </a>
+                                </label>
+                                @else
+                                <label for="">คำถาม
+                                    <a class="text-danger" href="#" onclick="delQuestion({{ $loop->index }})" id="btn-{{ $loop->index }}">
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>
+                                </label>
+                                @endif
+                            <input type="text" name="question[]" value="{{ Session::get('sensory_pretest')['question'][$loop->index] }}" id="" class="form-control" placeholder="Question">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="">รูปแบบการเลือก</label>
+                                <select class="form-control" name="test_choice[]" id="">
+                                    <option value="1" {{ Session::get('sensory_pretest')['test_choice'][$loop->index] == 1 ? 'selected' : '' }}>เลือกได้หลายตัวเลือก</option>
+                                    <option value="2" {{ Session::get('sensory_pretest')['test_choice'][$loop->index] == 2 ? 'selected' : '' }}>เลือกได้ตัวเลือกเดียว</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="">คำตอบที่ 1</label>
+                                <input type="text" name="answer1[]" id="" class="form-control" placeholder="Answer 1">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="">คำตอบที่ 2</label>
+                                <input type="text" name="answer2[]" id="" class="form-control" placeholder="Answer 2">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="">คำตอบที่ 3</label>
+                                <input type="text" name="answer3[]" id="" class="form-control" placeholder="Answer 3">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="">คำตอบที่ 4</label>
+                                <input type="text" name="answer4[]" id="" class="form-control" placeholder="Answer 4">
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+
                     @else
-                    <div class="card" id="question-0">
+                    <div class="card mb-3" id="question-0">
                         <div class="card-body row">
                             <div class="form-group col-md-8">
                                 <label for="">คำถาม</label>
                                 <input type="text" name="question[]" id="" class="form-control" placeholder="Question">
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="exampleFormControlSelect1">รูปแบบการเลือก</label>
+                                <label for="">รูปแบบการเลือก</label>
                                 <select class="form-control" name="test_choice[]" id="">
                                     <option value="1">เลือกได้หลายตัวเลือก</option>
                                     <option value="2">เลือกได้ตัวเลือกเดียว</option>
@@ -150,7 +194,7 @@
                 <div class="col-md-12 mb-3">
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-secondary" href="{{ route('test-info.edit') }}"><i class="fa fa-arrow-left"></i> ย้อนกลับ</a>
+                            <a class="btn btn-secondary" href="{{ route('test-info.create') }}"><i class="fa fa-arrow-left"></i> ย้อนกลับ</a>
                             <button class="btn btn-success float-right">ต่อไป <i class="fa fa-arrow-right"
                                     aria-hidden="true"></i></button>
                         </div>
@@ -169,7 +213,7 @@
         $("#btn-" + questionId).removeClass('btn-success').addClass('btn-danger');
         $("#btn-" + questionId).html('<i class="fa fa-trash-o"></i> ลบคำถาม').button("refresh");
         $("#Questions").append(
-            '<div class="card mt-3" id="question-' + (questionId + 1) + '">' +
+            '<div class="card mb-3" id="question-' + (questionId + 1) + '">' +
             '<div class="card-body row">' +
             '<div class="form-group col-md-8">' +
             '<label for="">คำถาม</label>' +
